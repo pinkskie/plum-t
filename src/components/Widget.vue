@@ -270,18 +270,7 @@ svg {
 .add-input::placeholder {
   font-family: "Nunito", sans-serif;
 }
-
 .error-geolocation {
   margin-top: 1rem;
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.1s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
 }
 </style>
