@@ -46,12 +46,12 @@
         :key="weather.id"
       />
     </div>
-    <div v-if="errorRequestGeolocation">
-      <ErrorMessage :message="errorRequestGeolocation" />
-    </div>
 
     <div v-if="gettingLocation">
       <i>Getting your location...</i>
+    </div>
+    <div v-if="errorRequestGeolocation">
+      <ErrorMessage :message="errorRequestGeolocation" />
     </div>
   </div>
 </template>
@@ -154,7 +154,6 @@ export default {
               localStorage.setItem("locations", JSON.stringify([data]));
               this.locations = [data];
             });
-          // .catch((error) => (this.errorMsg = error.response.data.message));
         },
         (err) => {
           this.gettingLocation = false;
@@ -240,7 +239,7 @@ svg {
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .location {
   display: flex;

@@ -34,7 +34,7 @@
           id="Trash"
           sketch:type="MSLayerGroup"
           transform="translate(1.000000, 1.000000)"
-          stroke="#000000"
+          :stroke="disable ? 'gray' : '#000000'"
           stroke-width="3"
         >
           <path
@@ -79,5 +79,11 @@
 <script>
 export default {
   name: "DeleteIcon",
+  props: {
+    disable: {
+      type: Boolean,
+      default: false,
+    },
+  },
 };
 </script>
