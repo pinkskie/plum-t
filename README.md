@@ -1,10 +1,6 @@
-# Vue Custom Element Bundler
+Vue Weather-widget
 
 Example using Webpack to bundle one or many Vue.js components into a single .js file that **can be used in any HTML/JS application.**
-
-Refer to [this post on vuetips.com](http://vuetips.com/vue-web-components) for more information.
-
-Check out [this example using rollup.js](https://github.com/kartsims/vue-customelement-bundler/tree/rollup) for a 25% lighter file (when gzipped) !
 
 ```html
 <html>
@@ -12,7 +8,7 @@ Check out [this example using rollup.js](https://github.com/kartsims/vue-custome
 
     ...
 
-    <my-vue-component/>
+    <weather-widget />
     <!-- you can add many instances of the component in the same page -->
     <my-vue-component/>
 
@@ -52,12 +48,3 @@ File will be placed in `dist/my-vue-component.js`.
 
 Refer to `webpack.config.js` for customization options.
 
-## Browser compability
-
-You may add the web component polyfill if you wish to support older browsers.
-
-```
-import 'document-register-element/build/document-register-element'
-```
-
-Thanks to @visualjerk for this proposal.
