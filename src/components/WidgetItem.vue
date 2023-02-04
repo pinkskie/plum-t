@@ -15,8 +15,12 @@
       {{ weather.weather[0].description }}
     </p>
     <div class="inline">
-      <span>♪ 3.0m/s SSE</span>
-      <span>♫ 1021hPa</span>
+      <span title="Wind speed" class="inlineIcon"
+        ><WindIcon /> {{ weather.wind.speed }} m/s
+      </span>
+      <span title="Wind speed" class="inlineIcon"
+        ><CompassIcon /> {{ weather.main.pressure }}hPa
+      </span>
     </div>
     <div class="inline">
       <span>Humadity: {{ weather.main.humidity }}%</span>
@@ -30,11 +34,15 @@
 
 <script>
 import WeatherImages from "../assets/WeatherImages.vue";
+import WindIcon from "../assets/icons/WindIcon.vue";
+import CompassIcon from "../assets/icons/CompassIcon.vue";
 
 export default {
   name: "WidgetItem",
   components: {
     WeatherImages,
+    WindIcon,
+    CompassIcon,
   },
   props: {
     weather: Object,
@@ -59,5 +67,10 @@ export default {
 }
 .bold-text {
   font-weight: 700;
+}
+.inlineIcon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 </style>

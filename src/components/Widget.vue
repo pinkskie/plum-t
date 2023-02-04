@@ -87,14 +87,13 @@ export default {
     return {
       loading: false,
       errorMsg: "",
-      info: null,
       settingsView: false,
       locations: [],
       weathers: [],
       selected: "",
 
       gettingLocation: false,
-      errorRequestGeolocation: null,
+      errorRequestGeolocation: "",
     };
   },
   created() {
