@@ -5,7 +5,7 @@
       <span>{{ location.name }}</span>
     </div>
     <button @click="$emit('click')" :disabled="disabled">
-      <DeleteIcon />
+      <DeleteIcon :disable="disabled" />
     </button>
   </div>
 </template>

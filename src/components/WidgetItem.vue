@@ -9,25 +9,24 @@
       <WeatherImages :info="weather.weather[0].main" />
       <p>{{ Math.floor(weather.main.temp) }}°С</p>
     </div>
-    <p>
-      Feels like {{ Math.floor(weather.main.feels_like) }}.
-      {{ weather.weather[0].main }}.
-      {{ weather.weather[0].description }}
-    </p>
+    <div class="widget-info">
+      <p>Feels like {{ Math.floor(weather.main.feels_like) }}°С.</p>
+      <p>{{ weather.weather[0].main }}. {{ weather.weather[0].description }}</p>
+    </div>
     <div class="inline">
       <span title="Wind speed" class="inlineIcon"
         ><WindIcon /> {{ weather.wind.speed }} m/s
       </span>
-      <span title="Wind speed" class="inlineIcon"
+      <span title="Pressure" class="inlineIcon"
         ><CompassIcon /> {{ weather.main.pressure }}hPa
       </span>
     </div>
     <div class="inline">
-      <span>Humadity: {{ weather.main.humidity }}%</span>
-      <span>Dew point: 0°c</span>
+      <span><b>Humadity:</b> {{ weather.main.humidity }}%</span>
+      <span><b>Dew point:</b> 0°c</span>
     </div>
     <span class="visibility">
-      Visibility: {{ weather.visibility / 100 }} km
+      <b>Visibility:</b> {{ weather.visibility / 100 }} km
     </span>
   </div>
 </template>
@@ -64,6 +63,16 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+}
+.widget-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.widget-info p {
+  margin: 0;
 }
 .bold-text {
   font-weight: 700;

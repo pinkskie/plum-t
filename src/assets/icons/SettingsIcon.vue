@@ -67,3 +67,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+svg {
+  transition: all 0.2s;
+}
+svg:hover {
+  transform: scale(1.1);
+}
+</style>

@@ -7,7 +7,9 @@
       </button>
     </div>
     <draggable class="locations-list" v-model="locations">
+      <p v-if="locations.length === 0">Locations are empty</p>
       <LocationItem
+        v-else
         v-for="location in locations"
         :key="location.id"
         :location="location"
@@ -50,7 +52,7 @@
     <div v-if="gettingLocation">
       <i>Getting your location...</i>
     </div>
-    <div v-if="errorRequestGeolocation">
+    <div class="error-geolocation" v-if="errorRequestGeolocation">
       <ErrorMessage :message="errorRequestGeolocation" />
     </div>
   </div>
@@ -185,6 +187,8 @@ export default {
     },
     toggleSettings() {
       this.settingsView = !this.settingsView;
+      this.errorMsg = "";
+      this.errorRequestGeolocation = "";
     },
     removeLocation(id) {
       const items = this.locations.filter((item) => item.id !== id);
@@ -217,7 +221,7 @@ svg {
 .widget-items {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2.5rem;
 }
 .settings-btn {
   position: absolute;
@@ -265,5 +269,19 @@ svg {
 }
 .add-input::placeholder {
   font-family: "Nunito", sans-serif;
+}
+
+.error-geolocation {
+  margin-top: 1rem;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.1s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
